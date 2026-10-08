@@ -1,101 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohit — SaaS Copywriter</title>
-<style>
-  :root{
-    --paper:#f7f1e6;
-    --ink:#2a2620;
-    --bronze:#8a6a3a;
-    --muted:#7a7266;
-    --line:#e4d9c8;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{
-    font-family:"Georgia","Times New Roman",serif;
-    background:var(--paper);
-    color:var(--ink);
-    line-height:1.6;
-  }
-  .wrap{max-width:760px;margin:0 auto;padding:48px 24px 80px}
-  .mark{
-    width:44px;height:44px;border:2px solid var(--bronze);
-    border-radius:50%;display:flex;align-items:center;justify-content:center;
-    font-size:20px;color:var(--bronze);margin-bottom:28px;
-  }
-  h1{font-size:34px;font-weight:normal;letter-spacing:.5px;margin-bottom:10px}
-  .sub{color:var(--muted);font-size:17px;margin-bottom:36px}
-  .contact{font-size:15px;color:var(--muted);margin-bottom:48px}
-  .contact a{color:var(--bronze);text-decoration:none}
-  .contact a:hover{text-decoration:underline}
-  h2{
-    font-size:13px;letter-spacing:3px;text-transform:uppercase;
-    color:var(--bronze);margin:40px 0 16px;font-weight:normal;
-  }
-  .sample{
-    border-left:3px solid var(--bronze);
-    padding:14px 20px;
-    margin-bottom:18px;
-    background:rgba(138,106,58,.05);
-  }
-  .sample .label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-  .sample .text{font-size:18px;font-style:italic}
-  .sample .note{font-size:13px;color:var(--muted);margin-top:6px}
-  .services{list-style:none}
-  .services li{padding:10px 0;border-bottom:1px solid var(--line);font-size:16px}
-  .services li span{color:var(--bronze)}
-  .cta{
-    display:inline-block;margin-top:36px;
-    background:var(--ink);color:var(--paper);
-    padding:14px 28px;text-decoration:none;font-size:15px;letter-spacing:1px;
-  }
-  .cta:hover{background:var(--bronze)}
-  footer{margin-top:60px;font-size:13px;color:var(--muted)}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mohit — SaaS copywriter</title>
+  <style>
+    :root {
+      --bg: #f3efe6;
+      --ink: #1c1915;
+      --card: #faf7f1;
+      --muted: #6e675c;
+      --line: #e2d9cc;
+      --accent: #8a5a3c;
+      --gold: #c4a574;
+      --bad: #9a9186;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.45;
+    }
+    .page { position: relative; overflow: hidden; }
+    .bg { position: absolute; inset: 0; pointer-events: none; }
+    .wrap { position: relative; max-width: 820px; margin: 0 auto; padding: 40px 20px 88px; }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 48px;
+      font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 650; }
+    nav .links { display: flex; gap: 14px; flex-wrap: wrap; }
+    nav a { color: var(--accent); text-decoration: none; }
+    .hero { display: grid; grid-template-columns: 1.4fr .6fr; gap: 24px; align-items: end; }
+    .kicker {
+      font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+      color: var(--accent);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 0 0 14px;
+    }
+    h1 {
+      font-size: clamp(36px, 6vw, 56px);
+      line-height: 1.02;
+      font-weight: 500;
+      margin: 0 0 18px;
+      letter-spacing: -0.03em;
+    }
+    .lead { color: var(--muted); font-size: 18px; max-width: 38rem; margin: 0 0 28px; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    a.btn {
+      font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+      display: inline-block;
+      background: var(--ink);
+      color: #f7f3ec;
+      text-decoration: none;
+      font-weight: 650;
+      padding: 13px 18px;
+      border-radius: 999px;
+    }
+    .ghost { font-family: "Segoe UI", Helvetica, Arial, sans-serif; color: var(--muted); font-size: 14px; }
+    .mark { justify-self: end; }
+    h2 {
+      font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 64px 0 16px;
+      font-weight: 700;
+    }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .offer, .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+    .offer { padding: 18px; }
+    .icon { margin-bottom: 12px; }
+    .offer strong { display: block; font-family: "Segoe UI", Helvetica, Arial, sans-serif; font-size: 15px; margin-bottom: 6px; }
+    .offer p { margin: 0; color: var(--muted); font-size: 14px; }
+    .card { padding: 18px 18px 16px; margin-bottom: 14px; }
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .meta span:last-child { color: var(--muted); }
+    .before { color: var(--bad); text-decoration: line-through; margin: 0 0 10px; font-size: 16px; }
+    .after { margin: 0; font-size: 26px; line-height: 1.2; letter-spacing: -0.02em; }
+    .why { margin: 12px 0 0; color: var(--muted); font-size: 14px; font-family: "Segoe UI", Helvetica, Arial, sans-serif; }
+    .price { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 18px; }
+    .price div strong { display: block; font-family: "Segoe UI", Helvetica, Arial, sans-serif; }
+    .price div span { color: var(--muted); font-size: 14px; }
+    footer {
+      margin-top: 40px;
+      color: var(--muted);
+      font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+    }
+    @media (max-width: 700px) {
+      .grid, .hero { grid-template-columns: 1fr; }
+      .mark { justify-self: start; }
+      .after { font-size: 22px; }
+      nav { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="mark">M</div>
-  <h1>Mohit</h1>
-  <p class="sub">I write landing pages and emails that turn SaaS visitors into paying customers.</p>
-  <p class="contact">
-    <a href="mailto:mohitwritescopy@gmail.com">mohitwritescopy@gmail.com</a>
-    &nbsp;·&nbsp;
-    <a href="tel:+917658803230">+91 7658803230</a>
-  </p>
+  <div class="page">
+    <svg class="bg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <circle cx="1040" cy="80" r="180" fill="#e7dcc8" />
+      <circle cx="80" cy="640" r="140" fill="#eadfce" />
+      <path d="M0 120 C 180 80, 240 200, 420 160" fill="none" stroke="#c4a574" stroke-width="1" opacity=".7" />
+    </svg>
+    <div class="wrap">
+      <nav>
+        <span class="brand">
+          <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
+            <rect x="1" y="1" width="26" height="26" rx="6" fill="#1c1915" />
+            <path d="M8 18 V10 h3.2 c2.4 0 3.8 1.2 3.8 3.1 0 1.9-1.4 3.1-3.8 3.1 H9.6 V18 H8 zm1.6-3.2 h1.4 c1.2 0 1.9-.6 1.9-1.6 S12.2 11.6 11 11.6 H9.6 v3.2 zM17 18 v-8 h1.5 l3.3 5.1 V10 H23 v8 h-1.5 L18.2 12.9 V18 H17 z" fill="#f3efe6" />
+          </svg>
+          Mohit Writes Copy
+        </span>
+        <span class="links">
+          <a href="mailto:mohitwritescopy@gmail.com">mohitwritescopy@gmail.com</a>
+          <a href="tel:+917658803230">+91 76588 03230</a>
+        </span>
+      </nav>
 
-  <h2>Sample Work — Spec Rewrites</h2>
+      <div class="hero">
+        <div>
+          <p class="kicker">SaaS copy · spec portfolio</p>
+          <h1>Visitors should know what you sell before they scroll.</h1>
+          <p class="lead">I rewrite SaaS homepages, trial emails, and CTAs so the offer is obvious. Samples below are practice work, labeled as spec — not fake client results.</p>
+          <div class="actions">
+            <a class="btn" href="mailto:mohitwritescopy@gmail.com?subject=Landing%20page%20rewrite">Send me your page</a>
+            <span class="ghost">Reply in 1 day. First headline rewrite is free.</span>
+          </div>
+        </div>
+        <svg class="mark" width="180" height="180" viewBox="0 0 180 180" aria-hidden="true">
+          <rect x="18" y="18" width="144" height="144" rx="18" fill="#faf7f1" stroke="#e2d9cc" />
+          <path d="M40 120 C 60 70, 90 60, 140 48" fill="none" stroke="#8a5a3c" stroke-width="2" />
+          <circle cx="140" cy="48" r="5" fill="#c4a574" />
+          <text x="40" y="92" font-family="Georgia, serif" font-size="22" fill="#1c1915">clear</text>
+          <text x="40" y="116" font-family="Georgia, serif" font-size="14" fill="#6e675c">beats clever</text>
+        </svg>
+      </div>
 
-  <div class="sample">
-    <div class="label">Project management tool — headline</div>
-    <div class="text">"Stop losing tasks in email threads. One dashboard. Every deadline. Zero chaos."</div>
-    <div class="note">Spec rewrite of a real homepage hero</div>
+      <h2>What I write</h2>
+      <div class="grid">
+        <div class="offer">
+          <svg class="icon" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect x="4" y="6" width="28" height="20" rx="3" fill="none" stroke="#8a5a3c" stroke-width="1.6"/><path d="M8 24 l6-6 4 3 8-9" fill="none" stroke="#c4a574" stroke-width="1.6"/></svg>
+          <strong>Homepage</strong><p>Hero, subhead, and the button. The only part most founders get wrong.</p>
+        </div>
+        <div class="offer">
+          <svg class="icon" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect x="5" y="8" width="26" height="18" rx="3" fill="none" stroke="#8a5a3c" stroke-width="1.6"/><path d="M6 10 l12 9 12-9" fill="none" stroke="#c4a574" stroke-width="1.6"/></svg>
+          <strong>Trial emails</strong><p>Welcome, day-2, and “you’re about to churn” notes.</p>
+        </div>
+        <div class="offer">
+          <svg class="icon" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><path d="M8 24 V12 h8 l4 4 v8 z" fill="none" stroke="#8a5a3c" stroke-width="1.6"/><path d="M16 12 v4 h4" fill="none" stroke="#c4a574" stroke-width="1.6"/></svg>
+          <strong>Ads and CTAs</strong><p>Short lines for LinkedIn, Google, and in-app buttons.</p>
+        </div>
+      </div>
+
+      <h2>Before / after</h2>
+
+      <article class="card">
+        <div class="meta"><span>Project tool · homepage</span><span>Spec</span></div>
+        <p class="before">The all-in-one workspace for modern teams.</p>
+        <p class="after">Stop losing tasks in email threads. One dashboard. Every deadline. Zero chaos.</p>
+        <p class="why">The old line could be any tool. The new one names the pain and the outcome.</p>
+      </article>
+      <article class="card">
+        <div class="meta"><span>Fintech · email subject</span><span>Spec</span></div>
+        <p class="before">Your weekly account update</p>
+        <p class="after">Your money’s moving. Here’s where it went.</p>
+        <p class="why">Subject lines get opened when they sound like a person, not a bank notice.</p>
+      </article>
+      <article class="card">
+        <div class="meta"><span>Design tool · button</span><span>Spec</span></div>
+        <p class="before">Sign up</p>
+        <p class="after">Start designing free — no card needed.</p>
+        <p class="why">The button should remove the objection, not just name the form.</p>
+      </article>
+      <article class="card">
+        <div class="meta"><span>CRM · hero</span><span>Spec</span></div>
+        <p class="before">Powerful CRM software for growing businesses.</p>
+        <p class="after">Know which deals are real. Close the ones that pay.</p>
+        <p class="why">“Powerful” is filler. Founders care which deals are worth a call.</p>
+      </article>
+
+      <h2>How we work</h2>
+      <div class="card price">
+        <div><strong>One page</strong><span>Homepage rewrite. One-time. Starting at ₹8,000.</span></div>
+        <div><strong>Monthly</strong><span>One test a week — headline, email, or CTA. Starting at ₹15,000/mo.</span></div>
+      </div>
+
+      <footer>Spec samples, not client case studies. Email mohitwritescopy@gmail.com or call +91 76588 03230.</footer>
+    </div>
   </div>
-
-  <div class="sample">
-    <div class="label">Fintech app — email subject line</div>
-    <div class="text">"Your money's moving. Here's where it went."</div>
-    <div class="note">Spec rewrite for a transaction-alert email</div>
-  </div>
-
-  <div class="sample">
-    <div class="label">Design tool — call-to-action</div>
-    <div class="text">"Start designing free — no card needed."</div>
-    <div class="note">Spec rewrite of a signup button</div>
-  </div>
-
-  <h2>What I Do</h2>
-  <ul class="services">
-    <li><span>01</span> &nbsp; Landing page copy that converts visitors into signups</li>
-    <li><span>02</span> &nbsp; Email sequences that bring cold leads back</li>
-    <li><span>03</span> &nbsp; Ongoing optimization — testing headlines, measuring results</li>
-  </ul>
-
-  <a class="cta" href="mailto:mohitwritescopy@gmail.com">Book a free 15-minute call</a>
-
-  <footer>Mohit · SaaS copywriter · Spec samples, not client work</footer>
-</div>
 </body>
 </html>
